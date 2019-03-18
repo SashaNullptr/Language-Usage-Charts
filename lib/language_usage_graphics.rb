@@ -1,5 +1,3 @@
-required 'rugged'
-required 'linguist'
 required 'gruff'
 
 def normalize_scores( languages )
@@ -33,11 +31,3 @@ def render_language_breakdown( scores, file_path )
 
   graph.sort = true
   graph
-
-repo = Rugged::Repository.new(".")
-project = Linguist::Repository.new( repo, repo.head.target_id )
-
-normalized_scores = normalize_scores( project.languages )
-
-graph = render_language_breakdown( normalized_scores )
-graph.write( file_path,"./language_breakdown.png" )
