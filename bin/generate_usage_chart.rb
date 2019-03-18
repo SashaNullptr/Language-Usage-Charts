@@ -1,15 +1,15 @@
 #!/usr/bin/env ruby
 
-required 'rugged'
-required 'linguist'
-required 'gruff'
+require 'rugged'
+require 'linguist'
+require 'gruff'
 
-require 'language_usage_charts'
+require 'language_usage_graphics'
 
 repo = Rugged::Repository.new(".")
 project = Linguist::Repository.new( repo, repo.head.target_id )
 
-normalized_scores = normalize_scores( project.languages )
+normalized_scores = LanguageUsageCharts::normalize_scores( project.languages )
 
-graph = render_language_breakdown( normalized_scores )
+graph = LanguageUsageCharts::render_language_breakdown( normalized_scores )
 graph.write( file_path,"./language_breakdown.png" )
