@@ -16,7 +16,7 @@ def normalize_scores( languages )
 end
 
 def render_language_breakdown( scores, file_path )
-# Render a Pie Chart using normalized Linguist statistics and save to file
+# Render a Pie Chart using normalized Linguist statistics.
 
   graph = Gruff::SideStackedBar.new('800x300')
   graph.title = "Language Breakdown"
@@ -32,11 +32,12 @@ def render_language_breakdown( scores, file_path )
   end
 
   graph.sort = true
-  graph.write( file_path )
+  graph
 
 repo = Rugged::Repository.new(".")
 project = Linguist::Repository.new( repo, repo.head.target_id )
 
 normalized_scores = normalize_scores( project.languages )
 
-render_language_breakdown( normalized_scores, "./linguist/language_breakdown.png" )
+graph = render_language_breakdown( normalized_scores )
+graph.write( file_path,"./language_breakdown.png" )
