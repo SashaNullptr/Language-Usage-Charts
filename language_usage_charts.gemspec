@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.email = 'sashanullptr@gmail.com'
   s.files = `git ls-files`.split($\)
   s.license = 'MIT'
-  s.executables = ["generate_usage_chart.rb"]
+  s.executables = ["generate_usage_chart"]
   s.require_paths = ["lib"]
   s.add_runtime_dependency 'rugged'
   s.add_runtime_dependency 'github-linguist'
