@@ -16,3 +16,13 @@ If you're using a Debian variant distro all dependencies can be installed via:
 ```shell
 sudo apt-get install cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
 ```
+
+```shell
+bundle exec rake install
+```
+
+## Usage
+
+```shell
+generate_usage_chart
+```
