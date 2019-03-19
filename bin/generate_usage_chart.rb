@@ -4,7 +4,7 @@ require 'rugged'
 require 'linguist'
 require 'gruff'
 
-require_relative '../lib/language_usage_graphics.rb'
+require 'language_usage_graphics'
 
 repo = Rugged::Repository.new(".")
 project = Linguist::Repository.new( repo, repo.head.target_id )
