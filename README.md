@@ -31,16 +31,23 @@ bundle exec rake install
 ## Usage
 
 Once things have been installed with bundle language usage charts can be generated
-from anywhere using `generate_usage_chart $OPTS`. The following options are
-supported.
+from anywhere using `generate_usage_chart $OPTS`.
+
+### Options
+The following options are supported.
 
 | Option        | Usage                             | Example             |
 |---------------|-----------------------------------|---------------------|
 | `-r`. `--repo`| Path to a git repository.         | "."                 |
 | `-o`, `--out` | Path where usage chart should go. | "./usage_chart.png" |
 
-Example usage:
+### Example Usage
 
 ```shell
 generate_usage_chart -r "." -o "./language_usage_chart.png"
 ```
+
+If we were to generate a usage chart for this project, we'd get the following
+usage chart.
+
+![example_language_chart](language_usage_chart.png)
