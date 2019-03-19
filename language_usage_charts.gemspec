@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.executables = ["generate_usage_chart.rb"]
   s.require_paths = ["lib"]
-  s.add_runtime_dependency 'rugged', '~> 0.28.1', '>= 0.25'
-  s.add_runtime_dependency 'linguist', '~> 7.3.1', '>= 7.0.0'
-  s.add_runtime_dependency 'gruff', '~> 0.7.0', '>= 0.6'
+  s.add_runtime_dependency 'rugged'
+  s.add_runtime_dependency 'github-linguist'
+  s.add_runtime_dependency 'gruff'
 end

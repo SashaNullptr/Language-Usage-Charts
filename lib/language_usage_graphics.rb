@@ -1,7 +1,7 @@
 require 'gruff'
 
 module LanguageUsageCharts
-  def render_language_breakdown( scores )
+  def self.render_language_breakdown( scores )
   # Render a Pie Chart using normalized Linguist statistics.
 
     graph = Gruff::SideStackedBar.new('800x300')
@@ -9,7 +9,7 @@ module LanguageUsageCharts
 
     # Graph lavels *must* be defined, however we do not want any labels displayed,
     # so we set the label for the zero'th bar to nil.
-    graph.labels = {0>=nil}
+    graph.labels = {0=>nil}
 
     scores.each do |k,v|
       percent = (v*100)
@@ -21,7 +21,7 @@ module LanguageUsageCharts
     graph
   end
 
-  def normalize_scores( languages )
+  def self.normalize_scores( languages )
 
   # By default Linguist produces language usage statistics as a dictionary
   # which takes the following form:
