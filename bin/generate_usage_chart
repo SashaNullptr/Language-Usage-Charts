@@ -1,16 +1,24 @@
 #!/usr/bin/env ruby
 
+require 'optparse'
+require 'ostruct'
+
 require 'rugged'
 require 'linguist'
 require 'gruff'
 
 require 'language_usage_graphics'
 
-repo = Rugged::Repository.new(".")
+options = OpenStruct.new
+OptionParser.new do |opt|
+  opt.on('-r', '--repo REPO', 'Path to a git repository.') { |o| options.repo = o }
+  opt.on('-o', '--out OUT', 'Path where the resulting usage chart should go.') { |o| options.out = o }
+end.parse!
+
+repo = Rugged::Repository.new(options.repo)
 project = Linguist::Repository.new( repo, repo.head.target_id )
 
 normalized_scores = LanguageUsageCharts.normalize_scores( project.languages )
 
 graph = LanguageUsageCharts.render_language_breakdown( normalized_scores )
-file_path = File.join(__dir__, 'language_breakdown.png')
-graph.write( file_path )
+graph.write( options.out )
