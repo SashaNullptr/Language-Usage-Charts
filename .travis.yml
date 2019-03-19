@@ -8,4 +8,4 @@ script: gem build language_usage_charts.gemspec
 
 deploy:
   provider: rubygems
-api_key: $API_KEY
+  api_key: $API_KEY
