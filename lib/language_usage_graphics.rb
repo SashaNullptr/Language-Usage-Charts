@@ -22,7 +22,6 @@ module LanguageUsageCharts
   end
 
   def self.normalize_scores( languages )
-
   # By default Linguist produces language usage statistics as a dictionary
   # which takes the following form:
   #   :"Language Name" => Total number of characters written in language.
